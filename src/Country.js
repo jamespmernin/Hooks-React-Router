@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios"
 
 export default function App() {
-  let [countries, updateCountries] = useState([])
+  let [countries, setCountries] = useState([])
 
   useEffect(() => {
     const callApi = async () => {
       const data = await axios("https://restcountries.eu/rest/v2/all")
-
-      updateCountries(data.data)
+      setCountries(data.data)
     }
-
     callApi()
   }, [])
 
