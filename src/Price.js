@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom"
 
 import axios from "axios"
 
 export default function Price() {
-  let [price, updatePrice] = useState(0)
-  const params = useParams()
+  const [price, setPrice] = useState(0)
   
   const apiCall = async () => {
     const data = await axios(`https://api.coindesk.com/v1/bpi/currentprice/${params.currency}.json`)
-    updatePrice(data.data.bpi[params.currency].rate_float);
+    setPrice(data.data.bpi[params.currency].rate_float);
   }
 
   useEffect(() => {

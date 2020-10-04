@@ -1,28 +1,17 @@
-import React from 'react'
-import { Link, Route } from "react-router-dom"
+import React from "react";
 
-import Home from "./Home"
-import Currencies from "./Currencies"
-import Price from "./Price"
+import Home from "./Home";
 
 export default function App() {
   return (
     <>
       <nav>
-        <Link to="/">Bitcoin Prices</Link>
-        <Link to="/currencies">Currencies</Link>
+        <a to="/">Bitcoin Prices</a>
+        <a to="/currencies">Currencies</a>
       </nav>
       <main>
-        <Route path="/" exact>
-          <Home/>
-        </Route>
-        <Route path="/currencies">
-          <Currencies/>
-        </Route>
-        <Route path="/price/:currency">
-          <Price />
-        </Route>
+        <Home />
       </main>
     </>
-  )
+  );
 }
